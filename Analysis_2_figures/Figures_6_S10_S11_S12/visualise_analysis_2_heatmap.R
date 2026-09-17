@@ -82,8 +82,8 @@ my_theme <- function() {
 e.labs <- ~ paste0("EIR= ", as.numeric(.x))
 c.labs <- ~ paste0("Coverage = ", as.numeric(.x) * 100, "%")
 A.labs <- ~ paste0("Access = ", as.numeric(.x) * 100, "%")
-H.labs <- ~ paste0("Human Blood Index = ", as.factor (.x))
-S.labs <- ~ paste0("Transmission = ", as.factor(.x))
+H.labs <- ~ paste0("HBI = ", as.factor (.x))
+S.labs <- ~ paste0(as.factor(.x))
 
 eht.labs <- c("Parameterisation 1",
               "Parameterisation 2A",
@@ -190,14 +190,15 @@ Plot_HM<-ggplot(heat_map_combined %>% filter(EHT == "Martin")) +
     na.value = "black"
   ) +
   my_theme()+
-  labs(y="Coverage of CFP-PYR-ITN", x= "Coverage of PYR-ITN")
+  labs(y="Coverage of CFP-PYR-ITN", x= "Coverage of PYR-ITN")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 # Save
 outdir_experiment = paste0("/scicore/home/penny/masthi00/OUT_itn_simulation/", "Visualise_results/")
 summary_file <- "Figure_S10.pdf"
 summary_path <- paste0(outdir_experiment, summary_file)
 
-ggsave(summary_path, plot = Plot_HM, width = 40, height = 36, device = "pdf", units = "cm",  dpi = 300)
+ggsave(summary_path, plot = Plot_HM, width = 26, height = 22, device = "pdf", units = "cm",  dpi = 300)
 
 
 
@@ -220,7 +221,8 @@ Plot_HM<-ggplot(heat_map_combined %>% filter(EHT == "Nguessan")) +
     na.value = "black"
   ) +
   my_theme()+
-  labs(y="Coverage of CFP-PYR-ITN", x= "Coverage of PYR-ITN")
+  labs(y="Coverage of CFP-PYR-ITN", x= "Coverage of PYR-ITN")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 
 # Save
@@ -228,7 +230,7 @@ outdir_experiment = paste0("/scicore/home/penny/masthi00/OUT_itn_simulation/", "
 summary_file <- "Figure_S11.pdf"
 summary_path <- paste0(outdir_experiment, summary_file)
 
-ggsave(summary_path, plot = Plot_HM, width = 40, height = 36, device = "pdf", units = "cm",  dpi = 300)
+ggsave(summary_path, plot = Plot_HM, width = 26, height = 22, device = "pdf", units = "cm",  dpi = 300)
 
 
 # Figure S12
@@ -251,12 +253,13 @@ Plot_HM<-ggplot(heat_map_combined %>% filter(EHT == "Nguessan_2")) +
     na.value = "black"
   ) +
   my_theme()+
-  labs(y="Coverage of CFP-PYR-ITN", x= "Coverage of PYR-ITN")
+  labs(y="Coverage of CFP-PYR-ITN", x= "Coverage of PYR-ITN")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 # Save
 outdir_experiment = paste0("/scicore/home/penny/masthi00/OUT_itn_simulation/", "Visualise_results/")
 summary_file <- "Figure_S12.pdf"
 summary_path <- paste0(outdir_experiment, summary_file)
 
-ggsave(summary_path, plot = Plot_HM, width = 40, height = 36, device = "pdf", units = "cm",  dpi = 300)
+ggsave(summary_path, plot = Plot_HM, width = 26, height = 22, device = "pdf", units = "cm",  dpi = 300)
 
